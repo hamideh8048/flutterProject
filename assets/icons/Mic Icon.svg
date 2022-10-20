@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Mic_Icon" data-name="Mic Icon" transform="translate(-631 -1922)">
+    <rect id="Rectangle_260" data-name="Rectangle 260" width="24" height="24" transform="translate(631 1922)" fill="#fff" opacity="0"/>
+    <path id="mic_black_24dp" d="M12,14a3,3,0,0,0,3-3V5A3,3,0,0,0,9,5v6A3,3,0,0,0,12,14Zm5.91-3a1,1,0,0,0-.98.85,5,5,0,0,1-9.86,0,1,1,0,0,0-1.98.29A6.993,6.993,0,0,0,11,17.92V20a1,1,0,0,0,2,0V17.92a6.993,6.993,0,0,0,5.91-5.78,1,1,0,0,0-1-1.14Z" transform="translate(630.921 1922)"/>
+  </g>
+</svg>
