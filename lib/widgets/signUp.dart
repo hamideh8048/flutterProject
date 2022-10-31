@@ -7,10 +7,10 @@ import 'PopUpMenuTile.dart';
 
 class SignUp extends StatelessWidget {
 int currentIndex=0;
-double googleHeight=500;
+double googleHeight=0;
   @override
   Widget build(BuildContext context) {
-  googleHeight=   MediaQuery.of(context).size.height*0.5;
+  googleHeight=   MediaQuery.of(context).size.height*0.45;
     //final List<String> names = <String>["Share size for top", "Share size for bottom", "Share shoe size","Share whole body size"];
     return Scaffold(
 
@@ -53,14 +53,14 @@ double googleHeight=500;
 
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(24,15,4,0),
+                      padding: const EdgeInsets.fromLTRB(24,15,0,0),
                       child: Row(
                           mainAxisAlignment:
                           MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                               SizedBox(
-                                width: 320,
+                                width: MediaQuery.of(context).size.width*0.85,
                                 child: Text(
                                   "Begin stylize yourself that you never exprienced before"
                                     ,style: const TextStyle(fontSize: 14,fontFamily: 'DM Sans',overflow: TextOverflow.ellipsis,color: Color(0xFF0F172A))
@@ -78,24 +78,16 @@ double googleHeight=500;
                       width:  MediaQuery.of(context).size.width *0.85,
                         height: 56,
                         decoration: BoxDecoration(
-                          //  border: Border.all(color: Colors.black87, width: 4),
                             border:  Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12),
-                          //color:Colors.red,
                           shape: BoxShape.rectangle,
                         ),
                         child:
                         InkWell(
                             onTap: ()
                             {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //     builder: (context) => HomeRobo(),
-                              // ),
                               Navigator.of(context).pushNamed(
                                 "/profile",
-                                // arguments: tripstarted
                               );
                             },child:
                         Row(
@@ -157,43 +149,68 @@ double googleHeight=500;
 
                                     ])
                             )
-     , SizedBox(
-      height:46,
-    ),
-                  Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding:  EdgeInsets.only(left:50),
-                                    child:
-
-                                  Text(
-                                    "Already have an account? Sign In",
-                                    style: const TextStyle(
-                                        fontFamily: 'DM Sans',
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14 ,
-                                        color:Color(0xFF0F172A)//Colors.red  ,#30322F
-                                      //  fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                  )
-                                ])
+    //  , SizedBox(
+    //   height:25,
+    // ),
+    //               Row(
+    //                             mainAxisAlignment:
+    //                             MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Padding(
+    //                                 padding:  EdgeInsets.only(left:50),
+    //                                 child:
+    //                               Text(
+    //                                 "Already have an account? Sign In",
+    //                                 style: const TextStyle(
+    //                                     fontFamily: 'DM Sans',
+    //                                     fontWeight: FontWeight.w400,
+    //                                     fontSize: 14 ,
+    //                                     color:Color(0xFF0F172A)//Colors.red  ,#30322F
+    //                                   //  fontWeight: FontWeight.bold,
+    //                                 ),
+    //                               )
+    //                               )
+    //                             ])
                           ])),
 
                             ]),),
 
+              )
+              , Expanded(
+                  child: Align(
+                      alignment: FractionalOffset.bottomCenter,
+                      child: MaterialButton(
+                          onPressed: () => {},
+                          child:
+
+                          Padding(
+                              padding:
+                              EdgeInsets.only(
+                                  bottom:11
+                              ),child:
+                          Center(
+                              child:
+                              Text(
+                                "Already have an account? Sign In",
+                                style: const TextStyle(
+                                    fontFamily: 'DM Sans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14 ,
+                                    color:Color(0xFF0F172A)//Colors.red  ,#30322F
+                                  //  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                          )
+                          )))
+
+              )
+            ]
+    )
 
 
+    ]));
 
-
-
-              )]
-    )]
-
-    ));
   }
 
 

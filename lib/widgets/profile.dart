@@ -1,5 +1,7 @@
 
 
+import 'package:RoboDrop/widgets/influencer.dart';
+import 'package:RoboDrop/widgets/quiz.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +9,8 @@ import '../constants/Assets.dart';
 
 import 'package:RoboDrop/widgets/stylist.dart';
 
+import 'closet.dart';
 import 'homeRobo.dart';
-
-
 
 class Profile extends StatefulWidget {
 
@@ -19,6 +20,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   int currentIndex = 0;
+  bool _visible = false;
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,18 +40,13 @@ class _ProfileState extends State<Profile> {
                   .size
                   .height,
               decoration: BoxDecoration(
-                color: Color(
-                    0xFFE5E5E5), // primaryColorShadow3,//primaryColorShadow3,
-                // borderRadius:
-                // BorderRadius.circular(smallButtonRadius)
-
+                color: Color(0xFFE5E5E5),
               ),
               child:
               Padding(
                   padding:
                   const EdgeInsets.fromLTRB(15, 0, 15, 0),
                   child:
-
                   Column(
                       mainAxisAlignment:
                       MainAxisAlignment.start,
@@ -75,18 +72,16 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
                                   SizedBox(
-
-                                    width: 100,
+                                    width: 90,
                                   ),
                                   GestureDetector(
-
-
                                     child: Image.asset(
-                                      Assets.popup, width: 18, height: 24,),
-                                    //Icon(Icons.library_add),//Text('Material App Bar'),
+                                      Assets.popup, width: 24, height: 24,),
                                     onTap: () {
+                                      setState(() {
+                                        _visible=!_visible;
+                                      });
                                       showMenu(
-
                                         color: Color(0xFFF4F5F2),
                                         context: context,
                                         shape: RoundedRectangleBorder(
@@ -94,10 +89,9 @@ class _ProfileState extends State<Profile> {
                                               Radius.circular(20.0),
                                             )),
                                         position: RelativeRect.fromLTRB(
-                                            0, 430, 0, 0),
+                                            0, MediaQuery.of(context).size.height*0.53, 0, 0),
                                         items: [
                                           PopupMenuItem(
-
                                               child:
                                               Padding(
                                                 padding:
@@ -105,8 +99,6 @@ class _ProfileState extends State<Profile> {
                                                     left: 0, right: 0),
                                                 child:
                                                 Container(
-
-                                                  //    color:Color(0xFFF4F5F2),
                                                     width: MediaQuery
                                                         .of(context)
                                                         .size
@@ -154,8 +146,7 @@ class _ProfileState extends State<Profile> {
                                                                             fontWeight: FontWeight
                                                                                 .w700,
                                                                             fontSize: 16,
-                                                                            color: Color(
-                                                                                0xFF48553D) //Colors.red  ,#30322F
+                                                                            color: Color(0xFF48553D) //Colors.red  ,#30322F
                                                                           //  fontWeight: FontWeight.bold,
                                                                         ),
                                                                       ),
@@ -201,14 +192,10 @@ class _ProfileState extends State<Profile> {
                                                     children: [
                                                       Padding(
                                                           padding:
-                                                          const EdgeInsets.only(
-                                                              left: 10),
-
+                                                          const EdgeInsets.only(left: 10),
                                                           child:
                                                           Container(
-
                                                             child:
-
                                                             Row(
                                                                 mainAxisAlignment:
                                                                 MainAxisAlignment
@@ -265,6 +252,7 @@ class _ProfileState extends State<Profile> {
                                                 height: 30,
                                                 child:
                                                 Row(
+
                                                     mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
@@ -276,11 +264,20 @@ class _ProfileState extends State<Profile> {
                                                           const EdgeInsets.only(
                                                               left: 10),
 
-                                                          child:
-                                                          Container(
-
                                                             child:
+                                                            InkWell(
+                                                              onTap: () {
+                                                                Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder: (context) => Quiz(),
+                                                                  ),
+                                                                );
 
+                                                              },child:
+                                                                Container(
+                                                        width: MediaQuery.of(context).size.width*0.5
+                                                                  ,child:
                                                             Row(
                                                                 mainAxisAlignment:
                                                                 MainAxisAlignment
@@ -307,8 +304,83 @@ class _ProfileState extends State<Profile> {
                                                                   ),
                                                                 ]
 
-                                                            ),
+                                                            ),)
                                                           )),
+                                                      Padding(
+                                                          padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10),
+                                                          child:
+                                                          Container(
+                                                            child: Image.asset(
+                                                              Assets.arrow,
+                                                              width: 10,
+                                                              height: 14,),
+                                                          ))
+
+                                                    ])
+
+                                            ),
+                                          ),
+                                          PopupMenuItem(
+
+                                            child: Container(
+                                                width: 600,
+                                                height: 30,
+                                                child:
+                                                Row(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                    crossAxisAlignment: CrossAxisAlignment
+                                                        .start,
+                                                    children: [
+                                                      Padding(
+                                                          padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10),
+
+                                                          child:
+                                                          InkWell(
+                                                              onTap: () {
+                                                                Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder: (context) => Influencer(),
+                                                                  ),
+                                                                );
+
+                                                              },child:
+                                                          Container(
+                                                            child:
+                                                            Row(
+                                                                mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                                crossAxisAlignment: CrossAxisAlignment
+                                                                    .start,
+                                                                children: [
+                                                                  Image.asset(
+                                                                    Assets.favorite,
+                                                                    width: 18,
+                                                                    height: 24,),
+                                                                  SizedBox(
+                                                                    width: 10,),
+                                                                  Text("Favorite Influencers",
+                                                                    style: const TextStyle(
+                                                                        fontFamily: 'DM Sans',
+                                                                        fontWeight: FontWeight
+                                                                            .w700,
+                                                                        fontSize: 16,
+                                                                        color: Color(
+                                                                            0xFF48553D) //Colors.red  ,#30322F
+                                                                      //  fontWeight: FontWeight.bold,
+                                                                    ),
+                                                                  ),
+                                                                ]
+
+                                                            ),
+                                                          ))),
 
                                                       Padding(
                                                           padding:
@@ -325,84 +397,6 @@ class _ProfileState extends State<Profile> {
 
                                                     ])
 
-                                            ),
-                                          ),
-                                          PopupMenuItem(
-
-                                            child: Container(
-                                              //    color:Color(0xFFF4F5F2),
-                                                width: 600,
-                                                //MediaQuery.of(context).size.width,
-                                                height: 30,
-                                                child:
-
-                                                Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    crossAxisAlignment: CrossAxisAlignment
-                                                        .start,
-                                                    children: [
-                                                      Positioned(
-                                                          left: 10,
-                                                          top: 10,
-
-                                                          child:
-                                                          InkWell(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                    context)
-                                                                    .pushNamed(
-                                                                  "/influencers",
-                                                                  // arguments: tripstarted
-                                                                );
-                                                              }, child:
-                                                          Container(
-
-                                                              child:
-
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                                crossAxisAlignment: CrossAxisAlignment
-                                                                    .start,
-                                                                children: [
-                                                                  Image.asset(
-                                                                    Assets
-                                                                        .favorite,
-                                                                    width: 18,
-                                                                    height: 24,),
-                                                                  SizedBox(
-                                                                    width: 10,),
-                                                                  Text(
-                                                                    "Favorite influencers",
-                                                                    style: const TextStyle(
-                                                                        fontFamily: 'DM Sans',
-                                                                        fontWeight: FontWeight
-                                                                            .w700,
-                                                                        fontSize: 16,
-                                                                        color: Color(
-                                                                            0xFF48553D) //Colors.red  ,#30322F
-                                                                      //  fontWeight: FontWeight.bold,
-                                                                    ),
-                                                                  ),
-                                                                ]
-
-                                                                ,
-                                                              )))),
-
-                                                      Positioned(
-                                                        right: 30,
-                                                        top: 10,
-                                                        child:
-                                                        Image.asset(
-                                                          Assets.arrow,
-                                                          width: 10,
-                                                          height: 14,),
-                                                      )
-
-                                                    ])
                                             ),
                                           ),
                                           PopupMenuItem(
@@ -499,7 +493,7 @@ class _ProfileState extends State<Profile> {
                             )),
                         Padding(
                             padding:
-                            const EdgeInsets.fromLTRB(15, 45, 15, 0),
+                             EdgeInsets.fromLTRB(15, MediaQuery.of(context).size.width*0.1, 15, 0),
                             child: Row(
                                 mainAxisAlignment:
                                 MainAxisAlignment.start,
@@ -557,7 +551,7 @@ class _ProfileState extends State<Profile> {
                             )
                         ),
                         SizedBox(
-                          height: 46,
+                          height: 50,
                         )
 
                         , DottedBorder(
@@ -623,9 +617,9 @@ class _ProfileState extends State<Profile> {
                                                     ),
                                                   )
                                               ),
-                                              SizedBox(width: 110,),
+                                              SizedBox(width: 90,),
                                               Text(
-                                                "Complete your profile",
+                                                "Complete your profile1",
                                                 style: const TextStyle(
                                                     fontFamily: 'DM Sans',
                                                     fontWeight: FontWeight.w500,
@@ -661,7 +655,7 @@ class _ProfileState extends State<Profile> {
                                                   width: 210,
                                                   alignment: Alignment
                                                       .bottomCenter,
-                                                  margin: EdgeInsets.all(20),
+                                                  margin: EdgeInsets.only(left: 20,top:20,bottom: 20),
                                                   child: LinearProgressIndicator(
                                                     backgroundColor: Colors
                                                         .white,
@@ -690,6 +684,368 @@ class _ProfileState extends State<Profile> {
               ),
 
             ),
+            // Visibility(
+            // visible: _visible,child:
+            // Positioned(
+            // bottom: 100,
+            // left: 5,
+            //   child:
+            //   Padding(
+            //   padding:
+            //   const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            //   child: Container(
+            //   width: MediaQuery.of(context).size.width*0.95,
+            //
+            //   decoration: BoxDecoration(
+            //       color: Color(0xFFFFFFFF),
+            //   borderRadius: BorderRadius.all( Radius.circular(20))
+            //   // topRight: Radius.circular(20),
+            //   // topLeft: Radius.circular(20),
+            //   ),child:
+            //      // color: Color(0xFFF4F5F2),
+            //
+            //       Column(
+            //           mainAxisAlignment:MainAxisAlignment.start,//  MainAxisAlignment.end,
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children:[
+            //             SizedBox(height: 30,),
+            //             Container(
+            //                 child:
+            //             Row(
+            //                 mainAxisAlignment:
+            //                 MainAxisAlignment
+            //                     .spaceBetween,
+            //                 crossAxisAlignment: CrossAxisAlignment
+            //                     .start,
+            //                 children: [
+            //                       InkWell(
+            //                           onTap: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) => Quiz(),
+            //                               ),
+            //                             );
+            //
+            //                           },child:
+            //                     Padding(
+            //                     padding:
+            //                     const EdgeInsets.only(
+            //                     left: 25),child:
+            //                       Container(
+            //                         child:
+            //                       Row(
+            //                           mainAxisAlignment:
+            //                           MainAxisAlignment
+            //                               .start,
+            //                           crossAxisAlignment: CrossAxisAlignment
+            //                               .start,
+            //                           children: [
+            //
+            //                             Image.asset(
+            //                               Assets.setting,
+            //                               width: 18,
+            //                               height: 24,),
+            //                             SizedBox(
+            //                               width: 10,),
+            //                             Text("Avatar Setting",
+            //                               style: const TextStyle(
+            //                                   fontFamily: 'DM Sans',
+            //                                   fontWeight: FontWeight
+            //                                       .w700,
+            //                                   fontSize: 16,
+            //                                   color: Color(
+            //                                       0xFF48553D) //Colors.red  ,#30322F
+            //                                 //  fontWeight: FontWeight.bold,
+            //                               ),
+            //                             ),
+            //                           ]
+            //
+            //                       ),))
+            //                       ),
+            //                         Padding(
+            //                         padding:
+            //                         const EdgeInsets.only(
+            //                         right: 20),child:
+            //                       Container(
+            //                         child: Image.asset(
+            //                           Assets.arrow,
+            //                           width: 10,
+            //                           height: 14,),
+            //                       ))
+            //
+            //                 ])),
+            //             SizedBox(height: 20,),
+            //             Container(child: Row(
+            //                     mainAxisAlignment:
+            //                     MainAxisAlignment
+            //                         .spaceBetween,
+            //                     crossAxisAlignment: CrossAxisAlignment
+            //                         .start,
+            //                     children: [
+            //                       InkWell(
+            //                           onTap: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) => Quiz(),
+            //                               ),
+            //                             );
+            //
+            //                           },child:
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               left: 25),child:
+            //                       Container(
+            //                         child:
+            //                         Row(
+            //                             mainAxisAlignment:
+            //                             MainAxisAlignment
+            //                                 .start,
+            //                             crossAxisAlignment: CrossAxisAlignment
+            //                                 .start,
+            //                             children: [
+            //
+            //                               Image.asset(
+            //                                 Assets.preferences,
+            //                                 width: 18,
+            //                                 height: 24,),
+            //                               SizedBox(
+            //                                 width: 10,),
+            //                               Text("Preferences",
+            //                                 style: const TextStyle(
+            //                                     fontFamily: 'DM Sans',
+            //                                     fontWeight: FontWeight
+            //                                         .w700,
+            //                                     fontSize: 16,
+            //                                     color: Color(
+            //                                         0xFF48553D) //Colors.red  ,#30322F
+            //                                   //  fontWeight: FontWeight.bold,
+            //                                 ),
+            //                               ),
+            //                             ]
+            //
+            //                         ),))
+            //                       ),
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               right: 20),child:
+            //                       Container(
+            //                         child: Image.asset(
+            //                           Assets.arrow,
+            //                           width: 10,
+            //                           height: 14,),
+            //                       ))
+            //
+            //                     ])),
+            //             SizedBox(height: 20,),
+            //             Container(
+            //                 child:
+            //                 Row(
+            //                     mainAxisAlignment:
+            //                     MainAxisAlignment
+            //                         .spaceBetween,
+            //                     crossAxisAlignment: CrossAxisAlignment
+            //                         .start,
+            //                     children: [
+            //                       InkWell(
+            //                           onTap: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) => Quiz(),
+            //                               ),
+            //                             );
+            //
+            //                           },child:
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               left: 25),child:
+            //                       Container(
+            //                         child:
+            //                         Row(
+            //                             mainAxisAlignment:
+            //                             MainAxisAlignment
+            //                                 .start,
+            //                             crossAxisAlignment: CrossAxisAlignment
+            //                                 .start,
+            //                             children: [
+            //
+            //                               Image.asset(
+            //                                 Assets.quiz,
+            //                                 width: 18,
+            //                                 height: 24,),
+            //                               SizedBox(
+            //                                 width: 10,),
+            //                               Text("Quiz",
+            //                                 style: const TextStyle(
+            //                                     fontFamily: 'DM Sans',
+            //                                     fontWeight: FontWeight
+            //                                         .w700,
+            //                                     fontSize: 16,
+            //                                     color: Color(
+            //                                         0xFF48553D) //Colors.red  ,#30322F
+            //                                   //  fontWeight: FontWeight.bold,
+            //                                 ),
+            //                               ),
+            //                             ]
+            //
+            //                         ),))
+            //                       ),
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               right: 20),child:
+            //                       Container(
+            //                         child: Image.asset(
+            //                           Assets.arrow,
+            //                           width: 10,
+            //                           height: 14,),
+            //                       ))
+            //
+            //                     ])),
+            //             SizedBox(height: 20,),
+            //             Container(
+            //                 child:
+            //                 Row(
+            //                     mainAxisAlignment:
+            //                     MainAxisAlignment
+            //                         .spaceBetween,
+            //                     crossAxisAlignment: CrossAxisAlignment
+            //                         .start,
+            //                     children: [
+            //                       InkWell(
+            //                           onTap: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) => Quiz(),
+            //                               ),
+            //                             );
+            //
+            //                           },child:
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               left: 25),child:
+            //                       Container(
+            //                         child:
+            //                         Row(
+            //                             mainAxisAlignment:
+            //                             MainAxisAlignment
+            //                                 .start,
+            //                             crossAxisAlignment: CrossAxisAlignment
+            //                                 .start,
+            //                             children: [
+            //
+            //                               Image.asset(
+            //                                 Assets.favorite,
+            //                                 width: 18,
+            //                                 height: 24,),
+            //                               SizedBox(
+            //                                 width: 10,),
+            //                               Text("Favorite Influencers",
+            //                                 style: const TextStyle(
+            //                                     fontFamily: 'DM Sans',
+            //                                     fontWeight: FontWeight
+            //                                         .w700,
+            //                                     fontSize: 16,
+            //                                     color: Color(
+            //                                         0xFF48553D) //Colors.red  ,#30322F
+            //                                   //  fontWeight: FontWeight.bold,
+            //                                 ),
+            //                               ),
+            //                             ]
+            //
+            //                         ),))
+            //                       ),
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               right: 20),child:
+            //                       Container(
+            //                         child: Image.asset(
+            //                           Assets.arrow,
+            //                           width: 10,
+            //                           height: 14,),
+            //                       ))
+            //
+            //                     ])),
+            //             SizedBox(height: 20,),
+            //             Container(
+            //                 child:
+            //                 Row(
+            //                     mainAxisAlignment:
+            //                     MainAxisAlignment
+            //                         .spaceBetween,
+            //                     crossAxisAlignment: CrossAxisAlignment
+            //                         .start,
+            //                     children: [
+            //                       InkWell(
+            //                           onTap: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) => Quiz(),
+            //                               ),
+            //                             );
+            //
+            //                           },child:
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               left: 25,bottom: 20),child:
+            //                       Container(
+            //                         child:
+            //                         Row(
+            //                             mainAxisAlignment:
+            //                             MainAxisAlignment
+            //                                 .start,
+            //                             crossAxisAlignment: CrossAxisAlignment
+            //                                 .start,
+            //                             children: [
+            //
+            //                               Image.asset(
+            //                                 Assets.share,
+            //                                 width: 18,
+            //                                 height: 24,),
+            //                               SizedBox(
+            //                                 width: 10,),
+            //                               Text("Share My Sizes",
+            //                                 style: const TextStyle(
+            //                                     fontFamily: 'DM Sans',
+            //                                     fontWeight: FontWeight
+            //                                         .w700,
+            //                                     fontSize: 16,
+            //                                     color: Color(
+            //                                         0xFF48553D) //Colors.red  ,#30322F
+            //                                   //  fontWeight: FontWeight.bold,
+            //                                 ),
+            //                               ),
+            //                             ]
+            //
+            //                         ),))
+            //                       ),
+            //                       Padding(
+            //                           padding:
+            //                           const EdgeInsets.only(
+            //                               right: 20),child:
+            //                       Container(
+            //                         child: Image.asset(
+            //                           Assets.arrow,
+            //                           width: 10,
+            //                           height: 14,),
+            //                       ))
+            //
+            //                     ]))
+            //           ])
+            //
+            //   )
+            //   )))
+
             Positioned(
                 bottom: 0,
                 right: 4,
@@ -771,6 +1127,14 @@ class _ProfileState extends State<Profile> {
           context,
           MaterialPageRoute(
             builder: (context) => HomeRobo(),
+          ),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>Closet(),
           ),
         );
         break;

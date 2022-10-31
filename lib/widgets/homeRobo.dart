@@ -7,6 +7,7 @@ import '../component/search_bar.dart';
 import '../component/search_bottomsheet.dart';
 import '../constants/Assets.dart';
 import 'PopUpMenuTile.dart';
+import 'closet.dart';
 
 
 class HomeRobo extends   StatefulWidget {
@@ -51,9 +52,7 @@ int currentIndex=0;
 
     Stack(
         children: [
-
           Column(
-
         mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -280,6 +279,14 @@ void onTabTapped(int value) {
         context,
         MaterialPageRoute(
           builder: (context) => Styist(),
+        ),
+      );
+      break;
+    case 3:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>Closet(),
         ),
       );
       break;

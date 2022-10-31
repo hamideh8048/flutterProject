@@ -10,6 +10,7 @@ import '../component/search_bottomsheet.dart';
 import '../constants/Assets.dart';
 import 'PopUpMenuTile.dart';
 import 'Match.dart';
+import 'closet.dart';
 
 class Outfit extends StatefulWidget {
 int currentIndex=0;
@@ -77,7 +78,7 @@ class _OutfitState extends State<Outfit> {
               Image.asset(
                 widget.id,
                 height: 400,
-                width: 327,
+                width: MediaQuery.of(context).size.width*0.85,
 
               ),
             )
@@ -306,6 +307,14 @@ void onTabTapped(int value) {
         context,
         MaterialPageRoute(
           builder: (context) => Styist(),
+        ),
+      );
+      break;
+    case 3:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>Closet(),
         ),
       );
       break;

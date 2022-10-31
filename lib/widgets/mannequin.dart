@@ -81,7 +81,7 @@ class _MannequinState extends State<Mannequin> {
                       Image.asset(
                         id,
                         height: 400,
-                        width: 327,
+                        width: MediaQuery.of(context).size.width*0.85,
 
                       ),
                     )
@@ -134,7 +134,7 @@ class _MannequinState extends State<Mannequin> {
               const EdgeInsets.fromLTRB(190, 372, 0, 0),
               child:
               Container(
-                  width: 78,
+                  width: 98,
                   height: 30,
                   decoration: BoxDecoration(
 

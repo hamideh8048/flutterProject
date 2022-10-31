@@ -8,15 +8,11 @@ import '../constants/Assets.dart';
 import 'PopUpMenuTile.dart';
 
 
-class BodySize extends StatelessWidget {
+class Measurement extends StatelessWidget {
 int currentIndex=0;
 
   @override
   Widget build(BuildContext context) {
-
-    final List<String> names = <String>["2XS", "XS", "S","M","L","XL","2XL"];
-    final List<Color> colors = <Color>[Color(0xFFE5E7E4), Color(0xFFE5E7E4), Color(0xFFFF8D64),Color(0xFFE5E7E4),Color(0xFFE5E7E4),Color(0xFFE5E7E4),Color(0xFFE5E7E4)];
-    final List<Color> fontColors = <Color>[Color(0xFF4B4D49), Color(0xFF4B4D49), Color(0xFFF2F2F2),Color(0xFF4B4D49),Color(0xFF4B4D49),Color(0xFF4B4D49),Color(0xFF4B4D49)];
 
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),//0xFFE5E5E5),//  Colors.white,
@@ -26,7 +22,7 @@ int currentIndex=0;
               color: Colors.black
           ),
           backgroundColor: Color(0xFFFFFFFF),
-          title: Text('Body Size',
+          title: Text('Measurement',
             style: const TextStyle(
                 fontFamily: 'DM Sans',
                 fontWeight: FontWeight.w700,
@@ -48,10 +44,9 @@ int currentIndex=0;
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-
               Padding(
                 padding:
-                const EdgeInsets.fromLTRB(10,31,15, 20),
+                const EdgeInsets.fromLTRB(10,27,15, 10),
                 child:
                 Row(
                     mainAxisAlignment:
@@ -104,7 +99,7 @@ int currentIndex=0;
               ),
               Padding(
                 padding:
-                const EdgeInsets.fromLTRB(10,31,10, 20),
+                const EdgeInsets.fromLTRB(10,27,10, 20),
                 child:
                 Row(
                     mainAxisAlignment:
@@ -645,14 +640,22 @@ int currentIndex=0;
 
           ),
 
-          Positioned(
-          left: 28,
-          bottom: 40,
-    child:
-    Container(
-    width: MediaQuery.of(context).size.width*0.85,
-    height: 56,
 
+         Expanded(
+    child: Align(
+    alignment: FractionalOffset.bottomCenter,
+        child: MaterialButton(
+        onPressed: () => {},
+    child:
+
+    Padding(
+    padding:
+    EdgeInsets.only(
+    bottom:MediaQuery.of(context).size.height*0.04// 20
+    ),child:
+    Container(
+    width:  MediaQuery.of(context).size.width*0.85,
+    height: 56,
     decoration: BoxDecoration(
     color:Color(0xFF869578) ,
     border:  Border.all(color: Colors.grey),
@@ -661,6 +664,16 @@ int currentIndex=0;
     shape: BoxShape.rectangle,
     ),
     child:
+    InkWell(
+    onTap: () {
+    // Navigator.push(
+    // context,
+    // MaterialPageRoute(
+    // builder: (context) => Gender(),
+    // ),
+    // );
+
+    },child:
     Row(
     mainAxisAlignment:
     MainAxisAlignment.center,
@@ -669,7 +682,7 @@ int currentIndex=0;
     Center(child:
 
     Text(
-    "Done",
+    "Next",
     textAlign: TextAlign.center,
     style: const TextStyle(
     fontFamily: 'DM Sans',
@@ -688,8 +701,57 @@ int currentIndex=0;
     )
 
     ])
+    )
+    ))
+    ),
+    ),
+    )
 
-    ),)
+    //       Positioned(
+    //       left: 28,
+    //       bottom: 40,
+    // child:
+    // Container(
+    //     width: MediaQuery.of(context).size.width*0.85,
+    // height: 56,
+    //
+    // decoration: BoxDecoration(
+    // color:Color(0xFF869578) ,
+    // border:  Border.all(color: Colors.grey),
+    // borderRadius: BorderRadius.circular(12),
+    // //color:Colors.red,
+    // shape: BoxShape.rectangle,
+    // ),
+    // child:
+    // Row(
+    // mainAxisAlignment:
+    // MainAxisAlignment.center,
+    // crossAxisAlignment: CrossAxisAlignment.center,
+    // children: [
+    // Center(child:
+    //
+    // Text(
+    // "Next",
+    // textAlign: TextAlign.center,
+    // style: const TextStyle(
+    // fontFamily: 'DM Sans',
+    // fontWeight: FontWeight.w500,
+    // fontSize: 16 ,
+    // color:Color(0xFFFFFFFF)//Colors.red  ,#30322F
+    // //  fontWeight: FontWeight.bold,
+    // ),
+    // ),
+    // ),
+    // SizedBox(width: 12,),
+    // Image.asset(
+    // Assets.arrow3,
+    // height: 14,
+    // width: 20,
+    // )
+    //
+    // ])
+    //
+    // ),)
 
     ]
     ));

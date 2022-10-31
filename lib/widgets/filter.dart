@@ -258,7 +258,8 @@ class _FilterState extends State<Filter> {
 
                                 )
                             ))
-                          ])),
+                          ])
+                  ),
                   Padding(
                       padding:
                       const EdgeInsets.only(left:30,right:20 ,top:10,bottom: 0),
@@ -394,8 +395,6 @@ class _FilterState extends State<Filter> {
                               )))
                         ] )
 
-
-
                   )
                   ,  Padding(
                         padding:
@@ -519,8 +518,6 @@ class _FilterState extends State<Filter> {
                       padding:
                       const EdgeInsets.only(left:30,right:20 ,top:0,bottom: 0),
                       child:
-
-
                       Visibility(
                           visible: _materialVisible,
                           child:
@@ -529,7 +526,6 @@ class _FilterState extends State<Filter> {
                               MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                  Padding(
                                     padding:
                                     const EdgeInsets.only(left: 0,right: 20,top:5,bottom: 10),

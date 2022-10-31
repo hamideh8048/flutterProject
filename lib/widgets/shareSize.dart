@@ -62,7 +62,8 @@ int currentIndex=0;
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
 
-                              child:  Column(
+                              child:
+                              Column(
                                 mainAxisAlignment:MainAxisAlignment.start,//  MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children:[
@@ -70,12 +71,10 @@ int currentIndex=0;
                               InkWell(
                                   onTap: ()
                                   {
-
                                     Navigator.of(context).pushNamed(
                                      // "/profile",
                                         urls[index]
                                     );
-
                                   },child:
 
                               Row(
@@ -83,7 +82,6 @@ int currentIndex=0;
                                 MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-
                                   Positioned(
                                     left: 0,
                                     top: 10,
@@ -104,7 +102,8 @@ int currentIndex=0;
                                       child:
                                       Image.asset(Assets.arrow,width: 10,height: 14,))
 
-                                ]))]),
+                                ]))
+                                ]),
                             );
                           }
                       ))

@@ -9,6 +9,7 @@ import '../component/search_bar.dart';
 import '../component/search_bottomsheet.dart';
 import '../constants/Assets.dart';
 import 'PopUpMenuTile.dart';
+import 'closet.dart';
 import 'outfit.dart';
 
 
@@ -78,8 +79,6 @@ class _StyistState extends State<Styist> {
                         context,
                         MaterialPageRoute(builder: (context) => Filter()));
 
-                    // query = '';
-                    // _getLabelSearch(context);
                   }
               ),
               IconButton(
@@ -145,16 +144,14 @@ class _StyistState extends State<Styist> {
               ),
                   Padding(
                     padding:
-                    const EdgeInsets.fromLTRB(5,15,10, 20),
+                    const EdgeInsets.fromLTRB(5,15,0, 20),
                     child:
                     Container(
                         width:  100,
                         height: 50,
                         decoration: BoxDecoration(
-                          //  border: Border.all(color: Colors.black87, width: 4),
                           border:  Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12),
-                          //color:Colors.red,
                           shape: BoxShape.rectangle,
                         ),
                         child:
@@ -182,16 +179,14 @@ class _StyistState extends State<Styist> {
                   ),
                   Padding(
                     padding:
-                    const EdgeInsets.fromLTRB(0,15,15, 20),
+                    const EdgeInsets.fromLTRB(10,15,0, 20),
                     child:
                     Container(
                         width:  110,
                         height: 50,
                         decoration: BoxDecoration(
-                          //  border: Border.all(color: Colors.black87, width: 4),
                           border:  Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12),
-                          //color:Colors.red,
                           shape: BoxShape.rectangle,
                         ),
                         child:
@@ -218,10 +213,7 @@ class _StyistState extends State<Styist> {
                     ),
                   ),
               ]),
-
-
             ],
-
           ),
 
           Padding(
@@ -229,10 +221,8 @@ class _StyistState extends State<Styist> {
               const EdgeInsets.fromLTRB(18,110,15, 0),
               child:
               Container(
-
                 height: MediaQuery.of(context).size.height*.7,
                   child:
-
               GridView.count(
               // Create a grid with 2 columns. If you change the scrollDirection to
               // horizontal, this produces 2 rows.
@@ -245,17 +235,12 @@ class _StyistState extends State<Styist> {
                   Padding(
                   padding:
                   const EdgeInsets.fromLTRB(10, 0, 0, 20),child:
-
-
-Stack(
+                Stack(
                 children: [
                   Container(
-
                   decoration: BoxDecoration(
-              //  border: Border.all(color: Colors.black87, width: 4),
-              border:  Border.all(color: Colors.grey),
+                  border:  Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(12),
-              //  color:Color(0xFFE3E3E3),
                 shape: BoxShape.rectangle,
                 ),
                 child:
@@ -265,7 +250,6 @@ Stack(
                       Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) =>  Outfit(id: secondUrls[index])));
-
                     },child:
                 Image.asset(
                                   secondUrls[index],
@@ -310,7 +294,6 @@ Stack(
                    //your image is here
                    child:
                    imgUp,
-
                    onTap: () {
                      setState(() {
                        selectedIndex=index;
@@ -352,7 +335,7 @@ Stack(
 
               },child:
             Container(
-                width:  327,
+                width: MediaQuery.of(context).size.width*0.85,
                 height: 56,
 
                 decoration: BoxDecoration(
@@ -462,6 +445,15 @@ void onTabTapped(int value) {
         ),
       );
       break;
+    case 3:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>Closet(),
+        ),
+      );
+      break;
+
     case 4:
       Navigator.push(
         context,

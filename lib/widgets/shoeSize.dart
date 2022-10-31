@@ -336,7 +336,7 @@ int currentIndex=0;
             bottom: 40,
             child:
             Container(
-                width:  327,
+                width: MediaQuery.of(context).size.width*0.85,
                 height: 56,
 
                 decoration: BoxDecoration(

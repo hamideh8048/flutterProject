@@ -3,8 +3,17 @@ class Assets{
 
   static String avatar='assets/images/avatar.png';
   static String shoe='assets/images/shoes.png';
+  static String cross='assets/images/cross.png';
+  static String shoe2='assets/images/shoe.png';
+  static String favorite2='assets/images/favorite2.png';
   static String upArrow='assets/images/upArrow.png';
   static String filter='assets/images/filter.png';
+  static String calender='assets/images/calender.png';
+  static String marker='assets/images/marker.png';
+  static String closet1='assets/images/closet1.png';
+  static String closet2='assets/images/closet2.png';
+  static String femalebody='assets/images/femalebody.png';
+  static String check='assets/images/check.png';
   static String tik='assets/images/tik.png';
   static String hat='assets/images/hat.png';
   static String tshirt4='assets/images/tshirt4.png';
@@ -19,6 +28,15 @@ class Assets{
   static String custom3='assets/images/custom3.png';
   static String male='assets/images/male.png';
   static String tshirt2='assets/images/tshirt2.png';
+  static String shirt2='assets/images/shirt2.png';
+  static String pant1='assets/images/pant1.png';
+  static String pant4='assets/images/pant4.png';
+  static String shirt7='assets/images/shirt7.png';
+  static String smallpant='assets/images/smallpant.png';
+  static String smalltshirt='assets/images/smalltshirt.png';
+  static String tikcircle='assets/images/tikCircle.png';
+  static String pant3='assets/images/pant3.png';
+  static String shirt3='assets/images/shirt3.png';
   static String arrowWhite='assets/images/arrowWhite.png';
   static String arrow3='assets/images/arrow3.png';
   static String weather='assets/images/weather.png';
